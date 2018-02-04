@@ -24,6 +24,9 @@ import { ProjectListComponent } from './projects/project-list/project-list.compo
 import { ProjectListingComponent } from './projects/projectListing/projectListing.component';
 import { ProjectCreateComponent } from './projects/projectCreate/projectCreate.component';
 import { ProjectDetailComponent } from './projects/projectDetail/projectDetail.component';
+import { ProjectSearchComponent } from './projects/projectSearch/projectSearch.component';
+
+
 import { FaqComponent } from './faq/faq.component';
 import { SearchComponent } from './search/search.component';
 import { TeamCreateComponent } from './teams/team-create/team-create.component';
@@ -32,6 +35,7 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { UserService } from './users/user.service';
 import { TeamService } from './teams/team.service';
 import { ProjectService } from './projects/project.service';
+import { ProjectSearchService } from './projects/projectSearch/projectSearch.service';
 import { SearchService } from './search/search.service';
 
 @NgModule({
@@ -56,6 +60,7 @@ import { SearchService } from './search/search.service';
     ProjectListingComponent,
     ProjectCreateComponent,
     ProjectDetailComponent,
+    ProjectSearchComponent,
     FaqComponent,
     SearchComponent,
     TeamCreateComponent,
@@ -82,10 +87,12 @@ import { SearchService } from './search/search.service';
       { path: 'teams/team-list', component: TeamListComponent },
       { path: 'teams/team-create', component: TeamCreateComponent },
       { path: 'projects/project-profile', component: ProjectProfileComponent },
+      { path: 'projects/projectSearch', component: ProjectSearchComponent },
       { path: 'projects/project-list', component: ProjectListComponent },
       { path: 'projects/projectListing', component: ProjectListingComponent },
       { path: 'projects/projectCreate', component: ProjectCreateComponent },
       { path: 'projects/projectDetail', component: ProjectDetailComponent },
+
 
 
     ])
@@ -94,6 +101,7 @@ import { SearchService } from './search/search.service';
     UserService,
     TeamService,
     ProjectService,
+    ProjectSearchService,
     SearchService
   ],
   bootstrap: [AppComponent]

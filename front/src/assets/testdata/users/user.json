@@ -1,0 +1,25 @@
+{
+    "uid": 114477,
+    "u_first": "Owen",
+    "u_last": "Chan",
+    "u_branch": "Computer Engineering",
+    "u_about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
+    "u_tag": "Angular NodeJs Phython",
+    "u_tags": [
+        "Angular",
+        "NodeJs",
+        "Phython"
+    ],
+    "u_areas": [
+        {
+            "label": "Computer Network",
+            "value": true
+        },
+        {
+            "label": "Computer Software",
+            "value": true
+        }
+    ],
+    "u_status": 35,
+    "u_views": 300
+}

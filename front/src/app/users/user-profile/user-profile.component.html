@@ -1,0 +1,546 @@
+<!-- Main Wrapper -->
+<div id="wrapper">
+
+  <div class="normalheader ">
+    <div class="hpanel">
+      <div class="panel-body">
+        <div id="hbreadcrumb" class="pull-right m-t-lg">
+          <ol class="hbreadcrumb breadcrumb">
+            <li>
+              <a [routerLink]="['/dashboard']">
+                <b>Dashboard</b>
+              </a>
+            </li>
+            <li class="active">
+              <span>
+                <b>Profile</b>
+              </span>
+            </li>
+          </ol>
+        </div>
+        <h2 class="font-light m-b-xs">
+          Profile
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="row" *ngIf="user">
+      <div class="col-lg-3">
+        <div class="hpanel hgreen">
+          <div class="panel-body">
+            <div class="pull-right text-right">
+              <div class="btn-group">
+                  <button class="btn btn-xs btn-default" [routerLink]="['/users/user-edit']"> Edit</button>
+                  <i class="fa fa-linkedin btn btn-default btn-xs"></i>
+              </div>
+            </div>
+            <img alt="logo" class="img-circle m-b m-t-md" src="assets/profile.jpg">
+            <h3>
+              <a href="">{{user.u_first}} {{user.u_last}}</a>
+            </h3>
+            <div class="text-muted font-bold m-b-xs">{{user.u_branch}}</div>
+            <p>
+              <span style="margin-right:2%"   *ngFor='let tag of user.u_tags'>#{{tag}}</span>
+
+            </p>
+            <p>
+              <span class="text-muted font-bold m-b-xs"> Areas</span>
+              <br>
+              <span style="margin-right:2%" *ngFor='let area of user.u_areas'>{{area.label}}</span>
+            </p>
+            <div class="progress m-t-xs full progress-small">
+              <div style="width: 65%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="65" role="progressbar" class=" progress-bar progress-bar-success">
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-footer contact-footer">
+            <div class="row">
+              <div class="col-md-6 border-right">
+                <div class="contact-stat">
+                  <span>{{user.u_status}}</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="contact-stat">
+                  <span>
+                    <strong>{{user.u_views}}</strong> views
+                  </span>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <p>
+              {{user.u_about}}
+            </p>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="col-lg-9">
+        <div class="hpanel">
+          <div class="hpanel">
+
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a data-toggle="tab" href="#tab-1">About Me</a>
+              </li>
+              <li class="">
+                <a data-toggle="tab" href="#tab-2">Interested Teams</a>
+              </li>
+              <li class="">
+                <a data-toggle="tab" href="#tab-3">Interested Projects</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div id="tab-1" class="tab-pane active">
+                <div class="panel-body">
+                  <div class="col-lg-12">
+                    <div class="row projects">
+                      <div class="hpanel hblue">
+                        <div class="panel-body">
+                          <div class="row">
+                            <div class="col-sm-8">
+                              <h4>
+                                <a href=""> {{user.u_project.p_name}}</a>
+                              </h4>
+
+                              <p>
+                                {{user.u_project.p_about}}
+                              </p>
+
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <div class="project-label">Initiator</div>
+                                  <small>{{user.u_project.pid}}</small>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="project-label">Modified</div>
+                                  <small>{{user.u_project.p_modified}}</small>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="project-label">Created</div>
+                                  <small>{{user.u_project.p_created}}</small>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="project-label">Progress</div>
+                                  <div class="progress m-t-xs full progress-small">
+                                    <div style="width: 25%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" class=" progress-bar progress-bar-info">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-4 project-info">
+                              <div class="project-value">
+                                <h2 class="text-info">
+                                  {{user.u_project.p_views}} Views
+                                </h2>
+                              </div>
+                              <!-- <div class="project-people">
+                                        <img alt="logo" class="img-circle" src="assets/a1.jpg">
+                                        <img alt="logo" class="img-circle" src="assets/a2.jpg">
+                                        <img alt="logo" class="img-circle" src="assets/a3.jpg">
+                                        <img alt="logo" class="img-circle" src="assets/a4.jpg">
+                                      </div> -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="panel-footer">
+                          Additional information about project in footer
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="row projects">
+                      <div class="hpanel hyellow">
+                        <div class="panel-body">
+                          <div class="row">
+                            <div class="col-sm-8">
+                              <h4>
+                                <a href="#"> {{user.u_team.t_name}}</a>
+                              </h4>
+                              <p>
+                                <span style="margin-right:3%" *ngFor="let tag of user.u_team.t_tags"> #{{tag}} </span>
+                              </p>
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <div class="project-label">Initiator</div>
+                                  <small>{{user.u_team.t_owner}}</small>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="project-label">Modifed</div>
+                                  <small>{{user.u_team.t_modifed}}</small>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="project-label">Created</div>
+                                  <small>{{user.u_team.t_created}}</small>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="project-label">Progress</div>
+                                  <div class="progress m-t-xs full progress-small">
+                                    <div style="width: 100%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" class=" progress-bar progress-bar-warning">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-4 project-info">
+                              <div class="project-value">
+                                <h2 class="text-warning">
+                                  {{user.u_team.t_views}} Views
+                                </h2>
+                              </div>
+                              <div class="project-people">
+                                <img alt="logo" class="img-circle" src="assets/a7.jpg">
+                                <img alt="logo" class="img-circle" src="assets/a8.jpg">
+                                <img alt="logo" class="img-circle" src="assets/a3.jpg">
+                                <img alt="logo" class="img-circle" src="assets/a2.jpg">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="panel-footer">
+                          Additional information about project in footer
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="row projects">
+                      <div class="hpanel hviolet">
+                        <div class="panel-body ">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <h4>
+                                <a href="#"> Experiences</a>
+                              </h4>
+
+                              <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                  <thead>
+                                    <tr>
+
+                                      <th>Company</th>
+                                      <th>Title</th>
+                                      <th>Date</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>ABC Electric Canada Inc</td>
+                                      <td>Office asistant - CO-OP Intern
+                                      </td>
+
+                                      <td>
+                                        2011/10/01 - 2012/02/01
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Tesla Beijing Inc</td>
+                                      <td>Software Engineer - Summer Intern
+                                      </td>
+
+                                      <td>
+                                        2015/05/13 - 2015/08/15
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>IBM Canada Lab</td>
+                                      <td>Support Engineer - PEY Intern
+                                      </td>
+
+                                      <td>
+                                        2017/05/02 - Present
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="panel-footer">
+                          Additional information about project in footer
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div id="tab-2" class="tab-pane">
+                <div class="panel-body">
+                  <div class="col-lg-12">
+                    <div class="row projects">
+                      <div class="hpanel hyellow">
+                        <div class="panel-body">
+                          <div class="row">
+                            <div class="col-sm-8">
+                              <h4>
+                                <a href="#"> {{user.u_team.t_name}}</a>
+                              </h4>
+                              <p>
+                                <span style="margin-right:3%" *ngFor="let tag of user.u_team.t_tags"> #{{tag}} </span>
+                              </p>
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <div class="project-label">Initiator</div>
+                                  <small>{{user.u_team.t_owner}}</small>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="project-label">Modifed</div>
+                                  <small>{{user.u_team.t_modifed}}</small>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="project-label">Created</div>
+                                  <small>{{user.u_team.t_created}}</small>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="project-label">Progress</div>
+                                  <div class="progress m-t-xs full progress-small">
+                                    <div style="width: 100%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" class=" progress-bar progress-bar-warning">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-4 project-info">
+                              <div class="project-value">
+                                <h2 class="text-warning">
+                                  {{user.u_team.t_views}} Views
+                                </h2>
+                              </div>
+                              <div class="project-people">
+                                <img alt="logo" class="img-circle" src="assets/a7.jpg">
+                                <img alt="logo" class="img-circle" src="assets/a8.jpg">
+                                <img alt="logo" class="img-circle" src="assets/a3.jpg">
+                                <img alt="logo" class="img-circle" src="assets/a2.jpg">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="panel-footer">
+                          Additional information about project in footer
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-3" class="tab-pane">
+                <div class="panel-body">
+                  <div class="col-lg-12">
+                    <div class="row projects">
+                      <div class="hpanel hblue">
+                        <div class="panel-body">
+                          <div class="row">
+                            <div class="col-sm-8">
+                              <h4>
+                                <a href=""> {{user.u_project.p_name}}</a>
+                              </h4>
+
+                              <p>
+                                {{user.u_project.p_about}}
+                              </p>
+
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <div class="project-label">Initiator</div>
+                                  <small>{{user.u_project.pid}}</small>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="project-label">Modified</div>
+                                  <small>{{user.u_project.p_modified}}</small>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="project-label">Created</div>
+                                  <small>{{user.u_project.p_created}}</small>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="project-label">Progress</div>
+                                  <div class="progress m-t-xs full progress-small">
+                                    <div style="width: 25%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" class=" progress-bar progress-bar-info">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-4 project-info">
+                              <div class="project-value">
+                                <h2 class="text-info">
+                                  {{user.u_project.p_views}} Views
+                                </h2>
+                              </div>
+                              <!-- <div class="project-people">
+                                            <img alt="logo" class="img-circle" src="assets/a1.jpg">
+                                            <img alt="logo" class="img-circle" src="assets/a2.jpg">
+                                            <img alt="logo" class="img-circle" src="assets/a3.jpg">
+                                            <img alt="logo" class="img-circle" src="assets/a4.jpg">
+                                          </div> -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="panel-footer">
+                          Additional information about project in footer
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+  <!-- Right sidebar -->
+  <div id="right-sidebar" class="animated fadeInRight">
+
+    <div class="p-m">
+      <button id="sidebar-close" class="right-sidebar-toggle sidebar-button btn btn-default m-b-md">
+        <i class="pe pe-7s-close"></i>
+      </button>
+      <div>
+        <span class="font-bold no-margins"> Analytics </span>
+        <br>
+        <small> Lorem Ipsum is simply dummy text of the printing simply all dummy text.</small>
+      </div>
+      <div class="row m-t-sm m-b-sm">
+        <div class="col-lg-6">
+          <h3 class="no-margins font-extra-bold text-success">300,102</h3>
+
+          <div class="font-bold">98%
+            <i class="fa fa-level-up text-success"></i>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <h3 class="no-margins font-extra-bold text-success">280,200</h3>
+
+          <div class="font-bold">98%
+            <i class="fa fa-level-up text-success"></i>
+          </div>
+        </div>
+      </div>
+      <div class="progress m-t-xs full progress-small">
+        <div style="width: 25%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" role="progressbar" class=" progress-bar progress-bar-success">
+          <span class="sr-only">35% Complete (success)</span>
+        </div>
+      </div>
+    </div>
+    <div class="p-m bg-light border-bottom border-top">
+      <span class="font-bold no-margins"> Social talks </span>
+      <br>
+      <small> Lorem Ipsum is simply dummy text of the printing simply all dummy text.</small>
+      <div class="m-t-md">
+        <div class="social-talk">
+          <div class="media social-profile clearfix">
+            <a class="pull-left">
+              <img src="assets/a1.jpg" alt="profile-picture">
+            </a>
+
+            <div class="media-body">
+              <span class="font-bold">John Novak</span>
+              <small class="text-muted">21.03.2015</small>
+              <div class="social-content small">
+                Injected humour, or randomised words which don't look even slightly believable.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="social-talk">
+          <div class="media social-profile clearfix">
+            <a class="pull-left">
+              <img src="assets/a3.jpg" alt="profile-picture">
+            </a>
+
+            <div class="media-body">
+              <span class="font-bold">Mark Smith</span>
+              <small class="text-muted">14.04.2015</small>
+              <div class="social-content">
+                Many desktop publishing packages and web page editors.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="social-talk">
+          <div class="media social-profile clearfix">
+            <a class="pull-left">
+              <img src="assets/a4.jpg" alt="profile-picture">
+            </a>
+
+            <div class="media-body">
+              <span class="font-bold">Marica Morgan</span>
+              <small class="text-muted">21.03.2015</small>
+
+              <div class="social-content">
+                There are many variations of passages of Lorem Ipsum available, but the majority have
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-m">
+      <span class="font-bold no-margins"> Sales in last week </span>
+      <div class="m-t-xs">
+        <div class="row">
+          <div class="col-xs-6">
+            <small>Today</small>
+            <h4 class="m-t-xs">$170,20
+              <i class="fa fa-level-up text-success"></i>
+            </h4>
+          </div>
+          <div class="col-xs-6">
+            <small>Last week</small>
+            <h4 class="m-t-xs">$580,90
+              <i class="fa fa-level-up text-success"></i>
+            </h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <small>Today</small>
+            <h4 class="m-t-xs">$620,20
+              <i class="fa fa-level-up text-success"></i>
+            </h4>
+          </div>
+          <div class="col-xs-6">
+            <small>Last week</small>
+            <h4 class="m-t-xs">$140,70
+              <i class="fa fa-level-up text-success"></i>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <small> Lorem Ipsum is simply dummy text of the printing simply all dummy text. Many desktop publishing packages and web page
+        editors.
+      </small>
+    </div>
+
+  </div>
+
+  <!-- Footer-->
+  <footer class="footer">
+    <span class="pull-right">
+      Example text
+    </span>
+    Company 2015-2020
+  </footer>
+
+</div>

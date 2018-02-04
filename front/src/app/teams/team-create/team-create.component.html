@@ -1,0 +1,362 @@
+<!-- Main Wrapper -->
+<div id="wrapper">
+
+  <div class="normalheader">
+    <div class="hpanel">
+      <div class="panel-body">
+        <div id="hbreadcrumb" class="pull-right">
+          <ol class="hbreadcrumb breadcrumb">
+            <li>
+              <a href="index.html">Dashboard</a>
+            </li>
+            <li>
+              <span>Team List</span>
+            </li>
+            <li class="active">
+              <span>Create a team </span>
+            </li>
+          </ol>
+        </div>
+        <h2 class="font-light m-b-xs">
+          Create a team
+        </h2>
+        <small>Good luck!</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="hpanel">
+
+          <div class="panel-body">
+
+            <form (ngSubmit)="save()" #teamForm="ngForm">
+
+              <div class="text-center m-b-md" id="wizardControl">
+
+                <a (click)="step_show(1)" class="btn" [ngClass]="{' btn-warning': steps==1,' btn-default': steps!=1,'disabled':!teamForm.valid}">Step 1 - Basic information</a>
+                <a (click)="step_show(2)" class="btn btn-default" [ngClass]="{' btn-warning': steps==2,' btn-default': steps!=2,'disabled':!teamForm.valid}">Step 2 - Invite teammates</a>
+                <a (click)="step_show(3)" class="btn btn-default" [ngClass]="{' btn-warning': steps==3,' btn-default': steps!=3,'disabled':!teamForm.valid}">Step 3 - Interested projects</a>
+
+              </div>
+
+              <div class="tab-content">
+                <div *ngIf="steps==1" [ngClass]="{'active':steps==1}" class="p-m tab-pane">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="row">
+                        <div class="form-group col-lg-12" [ngClass]="{'has-error': (v_tname.touched || v_tname.dirty) && !v_tname.valid}">
+                          <label>Team Name *</label>
+                          <span class="text-danger" *ngIf="(v_tname.touched || v_tname.dirty) && v_tname.errors?.required">
+                            <i class="fa fa-exclamation-triangle"></i> Please enter a team name</span>
+                          <span class="text-danger" *ngIf="(v_tname.touched || v_tname.dirty) && v_tname.errors?.minlength">
+                            <i class="fa fa-exclamation-triangle"></i> Please enter minimum 2 character</span>
+                          <input #v_tname="ngModel" required minlength="2" [(ngModel)]='new_team.t_name' type="text" class="form-control" placeholder="Be something cool"
+                            name="t_name">
+                        </div>
+                        <div class="form-group col-lg-6">
+                          <label>Team ID</label>
+                          <input type="text" [(ngModel)]='new_team.tid' [readonly]="input_disable" class="form-control" placeholder="Team ID" name="tid">
+                        </div>
+                        <div class="form-group col-lg-6">
+                          <label>Magic Token</label>
+                          <input type="text" [(ngModel)]='new_team.t_magictoken' [readonly]="input_disable" class="form-control" placeholder="Magic token"
+                            name="t_magictoken">
+                        </div>
+                        <div class="form-group col-lg-6" [ngClass]="{'has-error': (v_temail.touched || v_temail.dirty) && !v_temail.valid}">
+                          <label>Contact Email *</label>
+                          <span class="text-danger" *ngIf="(v_temail.touched || v_temail.dirty) && v_temail.errors?.required">
+                            <i class="fa fa-exclamation-triangle"></i> Please enter a contact email</span>
+                          <span class="text-danger" *ngIf="(v_temail.touched || v_temail.dirty) && v_temail.errors?.pattern">
+                            <i class="fa fa-exclamation-triangle"></i> Please input a valid email address</span>
+                          <input #v_temail="ngModel" required [pattern]="email_pattern" type="email" [(ngModel)]='new_team.t_email' class="form-control"
+                            placeholder="user@email.com" name="t_email">
+                        </div>
+                        <div class="form-group col-lg-6">
+                          <label>Cloud {{new_team.t_cloud}}</label>
+                          <input type="text" id="" [(ngModel)]='new_team.t_cloud' class="form-control" placeholder="Github / Dropbox / Google Doc"
+                            name="t_cloud">
+                        </div>
+                        <div class="form-group col-lg-12">
+                          <label class="control-label">Interested Areas</label>
+                          <br>
+                          <div *ngFor="let area of new_team.t_areas" class="col-lg-3">
+                            <div class="checkbox checkbox-warning checkbox-inline">
+                              <input type="checkbox" [(ngModel)]='area.value' [name]="area.label">
+                              <label> {{area.label}} </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group col-lg-12">
+                          <label>Tags</label>
+                          <input [(ngModel)]='new_team.t_tag' type="text" class="form-control" placeholder="Separated by space (e.g. C C++ Python Java DE2)"
+                            name="t_tag">
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="hpanel">
+                            <label>Description</label>
+                            <div class="summernote"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="steps==2" [ngClass]="{'active':steps==2}" class="p-m tab-pane">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="row">
+
+                        <div class="form-group col-lg-12">
+
+                          <table id="new_teammates" class="table table-bordered table-hover">
+                            <thead>
+                              <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th>Age</th>
+                                <th>Start date</th>
+                                <th>Salary</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                                <td>$320,800</td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="steps==3" [ngClass]="{'active':steps==3}" class="p-m tab-pane">
+                  <div class="row m-t-lg m-b-lg">
+
+                    <div class="col-lg-12">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="table-responsive">
+                            <table cellpadding="1" cellspacing="1" class="table">
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Phone</th>
+                                  <th>Street Address</th>
+                                  <th>City</th>
+                                  <th>Country</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Abraham</td>
+                                  <td>076 9477 4896</td>
+                                  <td>294-318 Duis Ave</td>
+                                  <td>Vosselaar</td>
+                                  <td>Belgium</td>
+                                </tr>
+                                <tr>
+                                  <td>Phelan</td>
+                                  <td>0500 034548</td>
+                                  <td>680-1097 Mi Rd.</td>
+                                  <td>Lavoir</td>
+                                  <td>Pakistan</td>
+                                </tr>
+                                <tr>
+                                  <td>Raya</td>
+                                  <td>(01315) 27698</td>
+                                  <td>Ap #289-8161 In Avenue</td>
+                                  <td>Santomenna</td>
+                                  <td>Burkina Faso</td>
+                                </tr>
+                                <tr>
+                                  <td>Azalia</td>
+                                  <td>0500 854198</td>
+                                  <td>226-4861 Augue. St.</td>
+                                  <td>Newtown</td>
+                                  <td>Christmas Island</td>
+                                </tr>
+                                <tr>
+                                  <td>Garth</td>
+                                  <td>(01662) 59083</td>
+                                  <td>3219 Elit Avenue</td>
+                                  <td>Ternitz</td>
+                                  <td>Saint Martin</td>
+                                </tr>
+                                <tr>
+                                  <td>Selma</td>
+                                  <td>0877 118 6905</td>
+                                  <td>P.O. Box 410, 7331 Nec, St.</td>
+                                  <td>Glenrothes</td>
+                                  <td>Korea, North</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="text-right m-t-xs">
+                  <a (click)="step_prev()" class="btn btn-default prev" [ngClass]="{'disabled':steps==1}" *ngIf="steps!=1">Previous</a>
+                  <a (click)="step_next()" class="btn btn-default next" [ngClass]="{'disabled':steps==3 || !teamForm.valid}" *ngIf="steps!=3">Next</a>
+                  <a class="btn btn-warning" [ngClass]="{'disabled':!teamForm.valid}" *ngIf="steps==3">Submit</a>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Right sidebar -->
+  <div id="right-sidebar" class="animated fadeInRight">
+
+    <div class="p-m">
+      <button id="sidebar-close" class="right-sidebar-toggle sidebar-button btn btn-default m-b-md">
+        <i class="pe pe-7s-close"></i>
+      </button>
+      <div>
+        <span class="font-bold no-margins"> Analytics </span>
+        <br>
+        <small> Lorem Ipsum is simply dummy text of the printing simply all dummy text.</small>
+      </div>
+      <div class="row m-t-sm m-b-sm">
+        <div class="col-lg-6">
+          <h3 class="no-margins font-extra-bold text-success">300,102</h3>
+
+          <div class="font-bold">98%
+            <i class="fa fa-level-up text-success"></i>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <h3 class="no-margins font-extra-bold text-success">280,200</h3>
+
+          <div class="font-bold">98%
+            <i class="fa fa-level-up text-success"></i>
+          </div>
+        </div>
+      </div>
+      <div class="progress m-t-xs full progress-small">
+        <div style="width: 25%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" role="progressbar" class=" progress-bar progress-bar-success">
+          <span class="sr-only">35% Complete (success)</span>
+        </div>
+      </div>
+    </div>
+    <div class="p-m bg-light border-bottom border-top">
+      <span class="font-bold no-margins"> Social talks </span>
+      <br>
+      <small> Lorem Ipsum is simply dummy text of the printing simply all dummy text.</small>
+      <div class="m-t-md">
+        <div class="social-talk">
+          <div class="media social-profile clearfix">
+            <a class="pull-left">
+              <img src="assets/a1.jpg" alt="profile-picture">
+            </a>
+
+            <div class="media-body">
+              <span class="font-bold">John Novak</span>
+              <small class="text-muted">21.03.2015</small>
+              <div class="social-content small">
+                Injected humour, or randomised words which don't look even slightly believable.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="social-talk">
+          <div class="media social-profile clearfix">
+            <a class="pull-left">
+              <img src="assets/a3.jpg" alt="profile-picture">
+            </a>
+
+            <div class="media-body">
+              <span class="font-bold">Mark Smith</span>
+              <small class="text-muted">14.04.2015</small>
+              <div class="social-content">
+                Many desktop publishing packages and web page editors.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="social-talk">
+          <div class="media social-profile clearfix">
+            <a class="pull-left">
+              <img src="assets/a4.jpg" alt="profile-picture">
+            </a>
+
+            <div class="media-body">
+              <span class="font-bold">Marica Morgan</span>
+              <small class="text-muted">21.03.2015</small>
+
+              <div class="social-content">
+                There are many variations of passages of Lorem Ipsum available, but the majority have
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-m">
+      <span class="font-bold no-margins"> Sales in last week </span>
+      <div class="m-t-xs">
+        <div class="row">
+          <div class="col-xs-6">
+            <small>Today</small>
+            <h4 class="m-t-xs">$170,20
+              <i class="fa fa-level-up text-success"></i>
+            </h4>
+          </div>
+          <div class="col-xs-6">
+            <small>Last week</small>
+            <h4 class="m-t-xs">$580,90
+              <i class="fa fa-level-up text-success"></i>
+            </h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <small>Today</small>
+            <h4 class="m-t-xs">$620,20
+              <i class="fa fa-level-up text-success"></i>
+            </h4>
+          </div>
+          <div class="col-xs-6">
+            <small>Last week</small>
+            <h4 class="m-t-xs">$140,70
+              <i class="fa fa-level-up text-success"></i>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer-->
+  <footer class="footer">
+    <span class="pull-right">
+      Example text
+    </span>
+    Company 2015-2020
+  </footer>
+
+</div>

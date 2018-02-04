@@ -55,9 +55,21 @@
         </a>
       </li>
       <li>
-        <a [routerLink]="['/projects/projectListing']">
+        <a href="#">
           <span class="nav-label">Projects</span>
+          <span class="fa arrow"></span>
         </a>
+        <ul class="nav nav-second-level">
+          <li>
+            <a [routerLink]="['/projects/projectListing']">Project Listing</a>
+          </li>
+          <li>
+            <a [routerLink]="['/projects/projectCreate']">Create a project</a>
+          </li>
+          <li>
+            <a [routerLink]="['/projects/projectDetail']">Project Details</a>
+          </li>
+        </ul>
       </li>
       <li>
         <a href="#">

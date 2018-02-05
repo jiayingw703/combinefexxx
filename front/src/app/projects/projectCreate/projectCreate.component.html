@@ -53,17 +53,28 @@
                             <i class="fa fa-exclamation-triangle"></i> Please enter a Project Title</span>
                           <span class="text-danger" *ngIf="(v_pname.touched || v_pname.dirty) && v_pname.errors?.minlength">
                             <i class="fa fa-exclamation-triangle"></i> Please enter minimum 10 character</span>
-                          <input #v_pname="ngModel" required minlength="10" [(ngModel)]='new_project.p_name' type="text" class="form-control" placeholder="Be something cool"
+                          <input #v_pname="ngModel" required minlength="10" [(ngModel)]='new_project.p_name' type="text" class="form-control" placeholder="Please enter project title here..."
                                  name="p_name">
                         </div>
                         <div class="form-group col-lg-6">
-                          <label>project ID</label>
-                          <input type="text" [(ngModel)]='new_project.pid' [readonly]="inpup_disable" class="form-control" placeholder="project ID" name="pid">
+                          <label>Number of Members</label>
+                           <br>
+                          <div *ngFor="let number of new_project.p_size" class="col-lg-3">
+	                            <div class="checkbox checkbox-warning checkbox-inline">
+	                              <input type="checkbox" [(ngModel)]='number.value' [name]="number.label">
+	                              <label> {{number.label}} </label>
+	                            </div>
+                          </div>
                         </div>
                         <div class="form-group col-lg-6">
-                          <label>Magic Token</label>
-                          <input type="text" [(ngModel)]='new_project.p_magictoken' [readonly]="inpup_disable" class="form-control" placeholder="Magic token"
-                                 name="p_magictoken">
+                          <label>Project Status</label>
+                           <br>
+	                          <div *ngFor="let status of new_project.p_status" class="col-lg-3">
+	                            <div class="checkbox checkbox-warning checkbox-inline">
+	                              <input type="checkbox" [(ngModel)]='status.value' [name]="status.label">
+	                              <label> {{status.label}} </label>
+	                            </div>
+                          </div>
                         </div>
 
                         <div class="form-group col-lg-12" [ngClass]="{'has-error': (v_pabs.touched || v_pabs.dirty) && !v_pabs.valid}">

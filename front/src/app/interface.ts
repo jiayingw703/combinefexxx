@@ -58,7 +58,7 @@ export interface IProject {
   oid?: number;
   p_owner?: string;
   p_teams?: ITeam[];
-  p_size?: number;
+  p_size?: IOption[];
   p_name?: string;
   p_email?: string;
   p_created?: Date;
@@ -71,7 +71,7 @@ export interface IProject {
   p_tag?: string;
   p_tags?: any[];
   p_areas?: IOption[];
-  p_status?: number;
+  p_status?: IOption[];
   p_pref?: any[];
   p_views?: number;
 

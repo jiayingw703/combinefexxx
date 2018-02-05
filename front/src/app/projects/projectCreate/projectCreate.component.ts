@@ -35,29 +35,37 @@ export class ProjectCreateComponent implements OnInit {
   ngOnInit() {
     this.new_project = {
       pid: 112233,
-      p_name: "Website Team",
       p_email: "nihao@gg.com",
       p_magictoken: 110020,
-      p_status: 35,
       p_created: new Date(),
       p_modified: new Date(),
-      p_views: 3000,
-      p_about: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.."
+      p_views: 0
     };
 
     this.new_project.p_areas = [
-      { label: 'Photonics', value: true },
-      { label: 'Semiconductor', value: true },
-      { label: 'Electromagnetics', value: true },
-      { label: 'Energy', value: true },
-      { label: 'Analog', value: true },
-      { label: 'Digital', value: true },
-      { label: 'Control', value: true },
-      { label: 'Communication', value: true },
-      { label: 'Signal Processing', value: true },
-      { label: 'Computer Hardware', value: true },
-      { label: 'Computer Software', value: true },
-      { label: 'Computer Network', value: true },
+      { label: 'Photonics', value: false },
+      { label: 'Semiconductor', value: false },
+      { label: 'Electromagnetics', value: false },
+      { label: 'Energy', value: false },
+      { label: 'Analog', value: false },
+      { label: 'Digital', value: false },
+      { label: 'Control', value: false },
+      { label: 'Communication', value: false },
+      { label: 'Signal Processing', value: false },
+      { label: 'Computer Hardware', value: false },
+      { label: 'Computer Software', value: false },
+      { label: 'Computer Network', value: false },
+    ];
+
+    this.new_project.p_size = [
+      { label: '2', value: false },
+      { label: '3', value: false },
+      { label: '4', value: false },
+    ];
+
+    this.new_project.p_status = [
+      { label: 'Open', value: true },
+      { label: 'Closed', value: false },
     ];
 
     this.email_pattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";

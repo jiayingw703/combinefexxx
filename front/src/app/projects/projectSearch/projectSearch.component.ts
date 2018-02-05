@@ -20,19 +20,13 @@ declare var $: any;
 })
 export class ProjectSearchComponent implements OnInit {
 
-  private users: IUser[];
-  private teams: ITeam[];
   private projects: IProject[];
 
   private data;
-  private data_to_render: any[];
-  private filtered: any[];
+  private data_to_render: IProject[];
+  private filtered: IProject[];
 
   private s_search: string;
-
-  private s_user: boolean;
-  private s_team: boolean;
-  private s_project: boolean;
 
   private s_date_start: Date;
   private s_date_end: Date;
@@ -56,36 +50,6 @@ export class ProjectSearchComponent implements OnInit {
   ngOnInit() {
 
     // this.data = this._searchService.getData();
-
-    this._userService.getUsers()
-      .subscribe(_users => {
-        for (let i = 0; i < _users.length; i++) {
-          _users[i].u_created = new Date();
-          _users[i].u_modified = new Date();
-          _users[i].u_modified_str = _users[i].u_modified.toISOString().substring(0, 10);
-
-          _users[i].u_tag ? _users[i].u_tags = _users[i].u_tag.split(" ") : null;
-          //_users[i].u_team.t_tag ? _users[i].u_team.t_tags = _users[i].u_team.t_tag.split(" ") : null;
-
-          _users[i].s_name = _users[i].u_name;
-          _users[i].s_str = _users[i].uid + " " + _users[i].u_utorid + " " + _users[i].u_name + " " + _users[i].u_email + " " + _users[i].u_tag;
-        }
-        this.users = _users;
-
-        this._teamService.getTeams()
-          .subscribe(_teams => {
-            for (let i = 0; i < _teams.length; i++) {
-              _teams[i].t_created = new Date();
-              _teams[i].t_modified = new Date();
-              _teams[i].t_modified_str = _teams[i].t_modified.toISOString().substring(0, 10);
-
-              _teams[i].t_tag ? _teams[i].t_tags = _teams[i].t_tag.split(" ") : null;
-
-              _teams[i].s_name = _teams[i].t_name;
-              _teams[i].s_str = _teams[i].tid + " " + _teams[i].oid + " " + _teams[i].t_owner + " " + _teams[i].t_email + " " + _teams[i].t_tag;
-            }
-            this.teams = _teams;
-
             this._projectService.getProjects()
               .subscribe(_projects => {
                 for (let i = 0; i < _projects.length; i++) {
@@ -102,13 +66,10 @@ export class ProjectSearchComponent implements OnInit {
                 this.projects = _projects;
 
                 this.data = [];
-                this.data = this.data.concat(this.users, this.teams, this.projects);
+                this.data = this.data.concat(this.projects);
 
                 this.data_to_render = this.data;
               });
-          });
-      });
-
     this.clear_filter();
   }
 
@@ -162,60 +123,7 @@ export class ProjectSearchComponent implements OnInit {
 
     //this.filtered.sort();
     this.data_to_render = this.filtered;
-    this.untouched_filter() ? null : this.bool_filter();
-  }
-
-  bool_filter() {
-    console.log(typeof this.users[1].u_areas, this.users[1].u_areas);
-    // console.log("Team Size:", $('#teamsize').val());
-    if (this.untouched_filter()) {
-      this.str_filter();
-      // this.data_to_render = this.data;
-      return;
-    }
-
-    this.filtered = [];
-    var check_all: boolean = (!this.s_user && !this.s_team && !this.s_team);
-
-    if (this.s_user || check_all) {
-      for (let i = 0; i < this.data_to_render.length; i++) {
-        if (this.data_to_render[i].uid != undefined && this.date_check(this.data_to_render[i].u_modified)) {
-          if (this.status_check(this.data_to_render[i].u_status)) {
-            this.area_check(this.data_to_render[i].u_areas) ? this.filtered.push(this.data_to_render[i]) : null;
-          }
-        }
-      }
-    }
-
-    if (this.s_team || check_all) {
-      for (let i = 0; i < this.data_to_render.length; i++) {
-        if (this.data_to_render[i].tid != undefined && this.date_check(this.data_to_render[i].t_modified)) {
-          if (this.size_check(this.data_to_render[i].t_size, "team")) {
-            if (this.status_check(this.data_to_render[i].t_status)) {
-              this.area_check(this.data_to_render[i].t_areas) ? this.filtered.push(this.data_to_render[i]) : null;
-            }
-          }
-        }
-
-      }
-    }
-
-    if (this.s_project || check_all) {
-      for (let i = 0; i < this.data_to_render.length; i++) {
-        if (this.data_to_render[i].pid != undefined && this.date_check(this.data_to_render[i].p_modified)) {
-          if (this.size_check(this.data_to_render[i].p_size, "project")) {
-            if (this.status_check(this.data_to_render[i].p_status)) {
-              this.area_check(this.data_to_render[i].p_areas) ? this.filtered.push(this.data_to_render[i]) : null;
-            }
-          }
-        }
-      }
-    }
-
-
-    //this.filtered.sort();
-    this.data_to_render = this.filtered;
-
+    //this.untouched_filter() ? null : this.date_check();
   }
 
   date_check(date: Date): boolean {
@@ -270,10 +178,6 @@ export class ProjectSearchComponent implements OnInit {
 
   untouched_filter(): boolean {
     var clean: boolean = true;
-    if (this.s_user || this.s_team || this.s_team) {
-      clean = false;
-      return clean;
-    }
     if (this.s_available || this.s_complete) {
       clean = false;
       return clean;
@@ -304,10 +208,6 @@ export class ProjectSearchComponent implements OnInit {
       { label: 'Computer Network', value: false },
     ];
 
-    this.s_user = false;
-    this.s_team = false;
-    this.s_project = false;
-
     this.s_available = false;
     this.s_complete = false;
 
@@ -335,10 +235,6 @@ export class ProjectSearchComponent implements OnInit {
       { label: 'Computer Software', value: true },
       { label: 'Computer Network', value: true },
     ];
-
-    this.s_user = true;
-    this.s_team = true;
-    this.s_project = true;
 
     this.s_available = true;
     this.s_complete = true;

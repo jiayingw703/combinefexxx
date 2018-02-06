@@ -1,11 +1,11 @@
 {
-    "p_name": "ECE496 Project Finder",
-    "p_owner": "P_OWENER",
+    "name": "ECE496 Project Finder",
+    "owner": "OWENER",
     "pid": 100300,
     "oid": 100300,
-    "p_status": 35,
-    "p_size": 7,
-    "p_views": 3000,
-    "p_about": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-    "p_tag": "Hello Moto Rola Gozzila"
+    "status": 35,
+    "size": 7,
+    "views": 3000,
+    "about": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    "tag": "Hello Moto Rola Gozzila"
 }

@@ -16,7 +16,7 @@
                             <a href="index.html">Dashboard</a>
                         </li>
                         <li>
-                            <span>App views</span>
+                            <a [routerLink]="['/projects/projectListing']">Projects</a>
                         </li>
                         <li class="active">
                             <span>Projects List</span>
@@ -42,13 +42,13 @@
                         <div class="row">
                             <div class="col-sm-8">
                                 <h4>
-                                    <a href="">{{project.pid}}:{{project.p_name}}</a>
+                                    <a href="">{{project.pid}}:{{project.name}}</a>
                                 </h4>
                               <p>
-                                <span style="margin-right:3%" *ngFor="let tag of project.p_tags"> #{{tag}} </span>
+                                <span style="margin-right:3%" *ngFor="let tag of project.tags"> #{{tag}} </span>
                               </p>
                                 <p>
-                                    {{project.p_about}}
+                                    {{project.about}}
                                 </p>
 
                                 <div class="row">
@@ -58,11 +58,11 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="project-label">Posting Date</div>
-                                        <small>{{project.p_created}}</small>
+                                        <small>{{project.created}}</small>
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="project-label">Status</div>
-                                        <small>{{project.p_status}}</small>
+                                        <small>{{project.status}}</small>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="project-value">
                                     <h2 class="text-info">
-                                        {{project.p_views}} Views
+                                        {{project.views}} Views
                                     </h2>
                                 </div>
                                 <!-- <div class="project-people">

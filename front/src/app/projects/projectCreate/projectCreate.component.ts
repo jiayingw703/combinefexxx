@@ -35,14 +35,14 @@ export class ProjectCreateComponent implements OnInit {
   ngOnInit() {
     this.new_project = {
       pid: 112233,
-      p_email: "nihao@gg.com",
-      p_magictoken: 110020,
-      p_created: new Date(),
-      p_modified: new Date(),
-      p_views: 0
+      email: "nihao@gg.com",
+      magictoken: 110020,
+      created: new Date(),
+      modified: new Date(),
+      views: 0
     };
 
-    this.new_project.p_areas = [
+    this.new_project.areas = [
       { label: 'Photonics', value: false },
       { label: 'Semiconductor', value: false },
       { label: 'Electromagnetics', value: false },
@@ -57,13 +57,13 @@ export class ProjectCreateComponent implements OnInit {
       { label: 'Computer Network', value: false },
     ];
 
-    this.new_project.p_size = [
+    this.new_project.size = [
       { label: '2', value: false },
       { label: '3', value: false },
       { label: '4', value: false },
     ];
 
-    this.new_project.p_status = [
+    this.new_project.status = [
       { label: 'Open', value: true },
       { label: 'Closed', value: false },
     ];
@@ -98,7 +98,7 @@ export class ProjectCreateComponent implements OnInit {
           ['fullscreen', ['fullscreen']]
         ]
       });
-      $('.summernote').summernote('code', this.new_project.p_about);
+      $('.summernote').summernote('code', this.new_project.about);
       this.jq_summernote = false;
     }
     if (this.jq_datatable) {
@@ -128,7 +128,7 @@ export class ProjectCreateComponent implements OnInit {
   }
 
   save_summernote() {
-    this.steps != 1 && this.steps_prev == 1 ? this.new_project.p_about = $('.summernote').summernote('code') : null;
+    this.steps != 1 && this.steps_prev == 1 ? this.new_project.about = $('.summernote').summernote('code') : null;
     this.jq_summernote = false;
   }
 

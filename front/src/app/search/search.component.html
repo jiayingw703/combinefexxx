@@ -144,26 +144,22 @@
               <a href="#">
                 <div class="panel-body">
                   <div class="col-sm-8">
-                    <h4 *ngIf="item.u_first || item.u_last" class="m-b-xs">{{item.u_first}} {{item.u_last}}</h4>
-                    <h4 *ngIf="item.t_name" class="m-b-xs">{{item.t_name}}</h4>
-                    <h4 *ngIf="item.p_name" class="m-b-xs">{{item.p_name}}</h4>
+                    <h4 *ngIf="item.name" class="m-b-xs">{{item.name}}</h4>
                     <div style="word-wrap: break-word;">
-                      <small style="margin-right:1%" *ngFor='let tag of item.u_tags'>#{{tag}}</small>
-                      <small style="margin-right:1%" *ngFor='let tag of item.t_tags'>#{{tag}}</small>
-                      <small style="margin-right:1%" *ngFor='let tag of item.p_tags'>#{{tag}}</small>
+                      <small style="margin-right:1%" *ngFor='let tag of item.tags'>{{tag}}</small>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="text-right">
-                      <small class="stat-label">Last activity: {{item.u_modified_str}}{{item.t_modified_str}}{{item.p_modified_str}}</small>
+                      <small class="stat-label">Last activity: {{item.modified_str}}{{item.modified_str}}{{item.modified_str}}</small>
                       <div class="progress m-t-xs full progress-striped active">
-                        <div *ngIf="item.uid" [ngStyle]="{'width': item.u_status + '%'}" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100"
+                        <div *ngIf="item.uid" [ngStyle]="{'width': item.status + '%'}" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100"
                           role="progressbar" class=" progress-bar" [ngClass]="{'progress-bar-success':item.uid}">
                         </div>
-                        <div *ngIf="item.tid" [ngStyle]="{'width':  item.t_status + '%'}" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100"
+                        <div *ngIf="item.tid" [ngStyle]="{'width':  item.status + '%'}" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100"
                           role="progressbar" class=" progress-bar" [ngClass]="{'progress-bar-warning': item.tid}">
                         </div>
-                        <div *ngIf="item.pid" [ngStyle]="{'width': item.p_status + '%'}" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100"
+                        <div *ngIf="item.pid" [ngStyle]="{'width': item.status + '%'}" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100"
                           role="progressbar" class=" progress-bar" [ngClass]="{'progress-bar-info': item.pid}">
                         </div>
                       </div>

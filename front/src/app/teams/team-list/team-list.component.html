@@ -32,24 +32,24 @@
             <div class="row">
               <div class="col-sm-8">
                 <h4>
-                  <a href="">{{team.tid}} : {{team.t_name}}</a>
+                  <a href="">{{team.tid}} : {{team.name}}</a>
                 </h4>
 
                 <p>
-                  <span style="margin-right:3%" *ngFor="let tag of team.t_tags"> #{{tag}} </span>
+                  <span style="margin-right:3%" *ngFor="let tag of team.tags"> #{{tag}} </span>
                 </p>
                 <div class="row">
                   <div class="col-sm-3">
                     <div class="project-label">Initiator</div>
-                    <small>{{team.t_owner}}</small>
+                    <small>{{team.owner}}</small>
                   </div>
                   <div class="col-sm-3">
                     <div class="project-label">Modified</div>
-                    <small>{{team.t_modified}}</small>
+                    <small>{{team.modified}}</small>
                   </div>
                   <div class="col-sm-3">
                     <div class="project-label">Created</div>
-                    <small>{{team.t_created}}</small>
+                    <small>{{team.created}}</small>
                   </div>
                   <div class="col-sm-3">
                     <div class="project-label">Progress</div>
@@ -70,7 +70,7 @@
                 </div> -->
                 <div class="project-value">
                   <h2 class="text-warning">
-                    {{team.t_views}} Views
+                    {{team.views}} Views
                   </h2>
                 </div>
                 <div class="project-people">

@@ -13,7 +13,7 @@ import { IProject } from '../interface';
 export class ProjectService {
 
   private url = './assets/testdata/projects/';
-
+  
   constructor(private _http: HttpClient) { }
 
   private handleError(err: HttpErrorResponse) {
@@ -30,16 +30,16 @@ export class ProjectService {
 
 
     // for search component
-    // project.s_name = project.p_name;
-    // project.s_str = project.pid + " " + project.oid + " " + project.p_name + " " + project.p_owner + " " + project.p_email + " " + project.p_tag
+    // project.s_name = project.name;
+    // project.s_str = project.pid + " " + project.oid + " " + project.name + " " + project.owner + " " + project.email + " " + project.tag
 
 
   }
 
 
   getProjects(): Observable<IProject[]> {
-    return this._http.get<IProject[]>(this.url + "projects.json")
-      .do(data => console.log("project.service.ts - getProjects: ", JSON.stringify(data)))
+    return this._http.get<IProject>(this.url + "projects.json")
+      .do(data => console.log("project.service.ts - getProject: ", JSON.stringify(data)))
       .catch(this.handleError);
   }
 

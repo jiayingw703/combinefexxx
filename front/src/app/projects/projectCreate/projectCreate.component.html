@@ -4,13 +4,13 @@
   <div class="normalheader">
     <div class="hpanel">
       <div class="panel-body">
-        <div id="hbreadcrumb" class="pull-right">
+        <div id="hbreadcrumb" class="pull-right m-t-lg">
           <ol class="hbreadcrumb breadcrumb">
             <li>
               <a href="index.html">Dashboard</a>
             </li>
             <li>
-              <span>Projects</span>
+              <a [routerLink]="['/projects/projectListing']">Projects</a>
             </li>
             <li class="active">
               <span>Create a Project </span>
@@ -20,7 +20,6 @@
         <h2 class="font-light m-b-xs">
           Create a Project
         </h2>
-        <small>Good luck!</small>
       </div>
     </div>
   </div>
@@ -53,13 +52,13 @@
                             <i class="fa fa-exclamation-triangle"></i> Please enter a Project Title</span>
                           <span class="text-danger" *ngIf="(v_pname.touched || v_pname.dirty) && v_pname.errors?.minlength">
                             <i class="fa fa-exclamation-triangle"></i> Please enter minimum 10 character</span>
-                          <input #v_pname="ngModel" required minlength="10" [(ngModel)]='new_project.p_name' type="text" class="form-control" placeholder="Please enter project title here..."
-                                 name="p_name">
+                          <input #v_pname="ngModel" required minlength="10" [(ngModel)]='new_project.name' type="text" class="form-control" placeholder="Please enter project title here..."
+                                 name="name">
                         </div>
                         <div class="form-group col-lg-6">
                           <label>Number of Members</label>
                            <br>
-                          <div *ngFor="let number of new_project.p_size" class="col-lg-3">
+                          <div *ngFor="let number of new_project.size" class="col-lg-3">
 	                            <div class="checkbox checkbox-warning checkbox-inline">
 	                              <input type="checkbox" [(ngModel)]='number.value' [name]="number.label">
 	                              <label> {{number.label}} </label>
@@ -69,7 +68,7 @@
                         <div class="form-group col-lg-6">
                           <label>Project Status</label>
                            <br>
-	                          <div *ngFor="let status of new_project.p_status" class="col-lg-3">
+	                          <div *ngFor="let status of new_project.status" class="col-lg-3">
 	                            <div class="checkbox checkbox-warning checkbox-inline">
 	                              <input type="checkbox" [(ngModel)]='status.value' [name]="status.label">
 	                              <label> {{status.label}} </label>
@@ -83,15 +82,15 @@
                             <i class="fa fa-exclamation-triangle"></i> Please enter a Short Description</span>
                           <span class="text-danger" *ngIf="(v_pabs.touched || v_pabs.dirty) && v_pabs.errors?.minlength">
                             <i class="fa fa-exclamation-triangle"></i> Please enter minimum 20 character</span>
-                          <input #v_pabs="ngModel" required minlength="20" required maxlength="100" [(ngModel)]='new_project.p_abs' type="text" class="form-control" placeholder="Maximum 100 characters, please enter full details in Description below"
-                                 name="p_abs">
+                          <input #v_pabs="ngModel" required minlength="20" required maxlength="100" [(ngModel)]='new_project.abs' type="text" class="form-control" placeholder="Maximum 100 characters, please enter full details in Description below"
+                                 name="abs">
 
                         </div>
 
                         <div class="form-group col-lg-12">
                           <label class="control-label">Related Areas</label>
                           <br>
-                          <div *ngFor="let area of new_project.p_areas" class="col-lg-3">
+                          <div *ngFor="let area of new_project.areas" class="col-lg-3">
                             <div class="checkbox checkbox-warning checkbox-inline">
                               <input type="checkbox" [(ngModel)]='area.value' [name]="area.label">
                               <label> {{area.label}} </label>
@@ -100,8 +99,8 @@
                         </div>
                         <div class="form-group col-lg-12">
                           <label>Tags</label>
-                          <input [(ngModel)]='new_project.p_tag' type="text" class="form-control" placeholder="Separated by space (e.g. C C++ Python Java DE2)"
-                                 name="p_tag">
+                          <input [(ngModel)]='new_project.tag' type="text" class="form-control" placeholder="Separated by space (e.g. C C++ Python Java DE2)"
+                                 name="tag">
                         </div>
                         <div class="col-lg-12">
                           <div class="hpanel">

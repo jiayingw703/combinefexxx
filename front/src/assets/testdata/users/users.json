@@ -1,17 +1,18 @@
 [
     {
         "uid": 114477,
-        "u_first": "Owen",
-        "u_last": "Chan",
-        "u_branch": "Computer Engineering",
-        "u_about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
-        "u_tag": "Angular NodeJs Phython",
-        "u_tags": [
+        "first": "Owen",
+        "last": "Chan",
+        "name": "Owen Chan",
+        "branch": "Computer Engineering",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
+        "tag": "Angular NodeJs Phython",
+        "tags": [
             "Angular",
             "NodeJs",
             "Phython"
         ],
-        "u_areas": [
+        "areas": [
             {
                 "label": "Computer Network",
                 "value": true
@@ -21,22 +22,23 @@
                 "value": true
             }
         ],
-        "u_status": 35,
-        "u_views": 300
+        "status": 35,
+        "views": 300
     },
     {
         "uid": 114477,
-        "u_first": "Owen",
-        "u_last": "Chan",
-        "u_branch": "Computer Engineering",
-        "u_about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
-        "u_tag": "Angular NodeJs Phython",
-        "u_tags": [
+        "first": "Owen",
+        "last": "Chan",
+        "name": "Owen Chan",
+        "branch": "Computer Engineering",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
+        "tag": "Angular NodeJs Phython",
+        "tags": [
             "Angular",
             "NodeJs",
             "Phython"
         ],
-        "u_areas": [
+        "areas": [
             {
                 "label": "Computer Network",
                 "value": true
@@ -46,22 +48,23 @@
                 "value": true
             }
         ],
-        "u_status": 35,
-        "u_views": 300
+        "status": 35,
+        "views": 300
     },
     {
         "uid": 114477,
-        "u_first": "Owen",
-        "u_last": "Chan",
-        "u_branch": "Computer Engineering",
-        "u_about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
-        "u_tag": "Angular NodeJs Phython",
-        "u_tags": [
+        "first": "Owen",
+        "last": "Chan",
+        "name": "Owen Chan",
+        "branch": "Computer Engineering",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
+        "tag": "Angular NodeJs Phython",
+        "tags": [
             "Angular",
             "NodeJs",
             "Phython"
         ],
-        "u_areas": [
+        "areas": [
             {
                 "label": "Computer Network",
                 "value": true
@@ -71,22 +74,23 @@
                 "value": true
             }
         ],
-        "u_status": 35,
-        "u_views": 300
+        "status": 35,
+        "views": 300
     },
     {
         "uid": 114477,
-        "u_first": "Owen",
-        "u_last": "Chan",
-        "u_branch": "Computer Engineering",
-        "u_about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
-        "u_tag": "Angular NodeJs Phython",
-        "u_tags": [
+        "first": "Owen",
+        "last": "Chan",
+        "name": "Owen Chan",
+        "branch": "Computer Engineering",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
+        "tag": "Angular NodeJs Phython",
+        "tags": [
             "Angular",
             "NodeJs",
             "Phython"
         ],
-        "u_areas": [
+        "areas": [
             {
                 "label": "Computer Network",
                 "value": true
@@ -96,22 +100,23 @@
                 "value": true
             }
         ],
-        "u_status": 35,
-        "u_views": 300
+        "status": 35,
+        "views": 300
     },
     {
         "uid": 114477,
-        "u_first": "Owen",
-        "u_last": "Chan",
-        "u_branch": "Computer Engineering",
-        "u_about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
-        "u_tag": "Angular NodeJs Phython",
-        "u_tags": [
+        "first": "Owen",
+        "last": "Chan",
+        "name": "Owen Chan",
+        "branch": "Computer Engineering",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
+        "tag": "Angular NodeJs Phython",
+        "tags": [
             "Angular",
             "NodeJs",
             "Phython"
         ],
-        "u_areas": [
+        "areas": [
             {
                 "label": "Computer Network",
                 "value": true
@@ -121,22 +126,23 @@
                 "value": true
             }
         ],
-        "u_status": 35,
-        "u_views": 300
+        "status": 35,
+        "views": 300
     },
     {
         "uid": 114477,
-        "u_first": "Owen",
-        "u_last": "Chan",
-        "u_branch": "Computer Engineering",
-        "u_about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
-        "u_tag": "Angular NodeJs Phython",
-        "u_tags": [
+        "first": "Owen",
+        "last": "Chan",
+        "name": "Owen Chan",
+        "branch": "Computer Engineering",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
+        "tag": "Angular NodeJs Phython",
+        "tags": [
             "Angular",
             "NodeJs",
             "Phython"
         ],
-        "u_areas": [
+        "areas": [
             {
                 "label": "Computer Network",
                 "value": true
@@ -146,22 +152,23 @@
                 "value": true
             }
         ],
-        "u_status": 35,
-        "u_views": 300
+        "status": 35,
+        "views": 300
     },
     {
         "uid": 114477,
-        "u_first": "Owen",
-        "u_last": "Chan",
-        "u_branch": "Computer Engineering",
-        "u_about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
-        "u_tag": "Angular NodeJs Phython",
-        "u_tags": [
+        "first": "Owen",
+        "last": "Chan",
+        "name": "Owen Chan",
+        "branch": "Computer Engineering",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
+        "tag": "Angular NodeJs Phython",
+        "tags": [
             "Angular",
             "NodeJs",
             "Phython"
         ],
-        "u_areas": [
+        "areas": [
             {
                 "label": "Computer Network",
                 "value": true
@@ -171,22 +178,23 @@
                 "value": true
             }
         ],
-        "u_status": 35,
-        "u_views": 300
+        "status": 35,
+        "views": 300
     },
     {
         "uid": 114477,
-        "u_first": "Owen",
-        "u_last": "Chan",
-        "u_branch": "Computer Engineering",
-        "u_about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
-        "u_tag": "Angular NodeJs Phython",
-        "u_tags": [
+        "first": "Owen",
+        "last": "Chan",
+        "name": "Owen Chan",
+        "branch": "Computer Engineering",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
+        "tag": "Angular NodeJs Phython",
+        "tags": [
             "Angular",
             "NodeJs",
             "Phython"
         ],
-        "u_areas": [
+        "areas": [
             {
                 "label": "Computer Network",
                 "value": true
@@ -196,57 +204,7 @@
                 "value": true
             }
         ],
-        "u_status": 35,
-        "u_views": 300
-    },
-    {
-        "uid": 114477,
-        "u_first": "Owen",
-        "u_last": "Chan",
-        "u_branch": "Computer Engineering",
-        "u_about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
-        "u_tag": "Angular NodeJs Phython",
-        "u_tags": [
-            "Angular",
-            "NodeJs",
-            "Phython"
-        ],
-        "u_areas": [
-            {
-                "label": "Computer Network",
-                "value": true
-            },
-            {
-                "label": "Computer Software",
-                "value": true
-            }
-        ],
-        "u_status": 35,
-        "u_views": 300
-    },
-    {
-        "uid": 114477,
-        "u_first": "Owen",
-        "u_last": "Chan",
-        "u_branch": "Computer Engineering",
-        "u_about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.",
-        "u_tag": "Angular NodeJs Phython",
-        "u_tags": [
-            "Angular",
-            "NodeJs",
-            "Phython"
-        ],
-        "u_areas": [
-            {
-                "label": "Computer Network",
-                "value": true
-            },
-            {
-                "label": "Computer Software",
-                "value": true
-            }
-        ],
-        "u_status": 35,
-        "u_views": 300
+        "status": 35,
+        "views": 300
     }
 ]

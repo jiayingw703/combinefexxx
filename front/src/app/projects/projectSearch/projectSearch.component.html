@@ -10,8 +10,11 @@
             <li>
               <a href="index.html">Dashboard</a>
             </li>
+            <li>
+              <a [routerLink]="['/projects/projectListing']">Projects</a>
+            </li>
             <li class="active">
-              <span>Projects</span>
+              <span>Search</span>
             </li>
           </ol>
         </div>
@@ -144,12 +147,12 @@
               <a href="#">
                 <div class="panel-body">
                   <div class="col-sm-12">
-                    <h4 *ngIf="item.p_name" class="m-b-xs">{{item.p_name}}</h4>
+                    <h4 *ngIf="item.name" class="m-b-xs">{{item.name}}</h4>
                     <div style="word-wrap: break-word;">
-                      <small style="margin-right:1%" *ngIf='item.p_about'>Abstract: {{item.p_about}}</small>
+                      <small style="margin-right:1%" *ngIf='item.about'>Abstract: {{item.about}}</small>
                     </div>
                     <div style="word-wrap: break-word;">
-                      <small style="margin-right:1%" *ngIf='item.p_status'>Status: {{item.p_status}}</small>
+                      <small style="margin-right:1%" *ngIf='item.status'>Status: {{item.status}}</small>
                     </div>
                   </div>
                 </div>

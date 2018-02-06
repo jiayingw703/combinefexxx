@@ -5,5 +5,5 @@ Not working
 
 
 Create:
-Should only check one box for size and status
+Should only check one box for size(might multiple for size?) and status
 

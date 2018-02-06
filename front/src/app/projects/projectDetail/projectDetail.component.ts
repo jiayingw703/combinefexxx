@@ -25,11 +25,11 @@ export class ProjectDetailComponent implements OnInit {
   ngOnInit() {
     this._projectService.getProject()
       .subscribe(_project => {
-        _project.p_created = new Date();
-        _project.p_modified = new Date();
-        _project.p_modified_str = _project.p_modified.toISOString().substring(0, 10);
+        _project.created = new Date();
+        _project.modified = new Date();
+        _project.modified_str = _project.modified.toISOString().substring(0, 10);
 
-        _project.p_tag ? _project.p_tags = _project.p_tag.split(" ") : null;
+        _project.tag ? _project.tags = _project.tag.split(" ") : null;
 
         this.project2 = _project;
       });

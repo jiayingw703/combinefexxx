@@ -22,7 +22,8 @@ export class UserService {
   }
 
   getUser(): Observable<IUser> {
-    return this._http.get<IUser>(this.url + "user.json")
+    return this._http.get<IUser>("http://localhost:8000/team_finder/users/1000123456/")
+    // return this._http.get<IUser>(this.url + "user.json")
       .do(data => console.log("user.service.ts - getUser: ", JSON.stringify(data)))
       .catch(this.handleError);
   }

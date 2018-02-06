@@ -22,11 +22,11 @@ export class ProjectListingComponent implements OnInit {
       .subscribe(_projects => {
 
         for (let i = 0; i < _projects.length; i++) {
-          _projects[i].p_created = new Date();
-          _projects[i].p_modified = new Date();
-          _projects[i].p_modified_str = _projects[i].p_modified.toISOString().substring(0, 10);
+          _projects[i].created = new Date();
+          _projects[i].modified = new Date();
+          _projects[i].modified_str = _projects[i].modified.toISOString().substring(0, 10);
 
-          _projects[i].p_tag ? _projects[i].p_tags = _projects[i].p_tag.split(" ") : null;
+          _projects[i].tag ? _projects[i].tags = _projects[i].tag.split(" ") : null;
         }
 
         this.projects = _projects;

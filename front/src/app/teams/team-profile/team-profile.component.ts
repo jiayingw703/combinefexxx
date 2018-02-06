@@ -24,11 +24,11 @@ export class TeamProfileComponent implements OnInit {
   ngOnInit() {
     this._teamService.getTeam()
       .subscribe(_team => {
-        _team.t_created = new Date();
-        _team.t_modified = new Date();
-        _team.t_modified_str = _team.t_modified.toISOString().substring(0, 10);
+        _team.created = new Date();
+        _team.modified = new Date();
+        _team.modified_str = _team.modified.toISOString().substring(0, 10);
 
-        _team.t_tag ? _team.t_tags = _team.t_tag.split("") : null;
+        _team.tag ? _team.tags = _team.tag.split("") : null;
 
         this.team = _team;        
       })

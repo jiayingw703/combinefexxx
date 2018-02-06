@@ -23,7 +23,7 @@ export class TeamCreateComponent implements OnInit {
   private jq_summernote: boolean;
   private jq_datatable: boolean;
 
-  private input_disable: boolean;
+  private inpudisable: boolean;
   private steps: number;
   private steps_prev: number;
 
@@ -35,17 +35,17 @@ export class TeamCreateComponent implements OnInit {
   ngOnInit() {
     this.new_team = {
       tid: 112233,
-      t_name: "Website Team",
-      t_email: "nihao@gg.com",
-      t_magictoken: 110020,
-      t_status: 35,
-      t_created: new Date(),
-      t_modified: new Date(),
-      t_views: 3000,
-      t_about: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.."
+      name: "Website Team",
+      email: "nihao@gg.com",
+      magictoken: 110020,
+      status: 35,
+      created: new Date(),
+      modified: new Date(),
+      views: 3000,
+      about: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.."
     };
 
-    this.new_team.t_areas = [
+    this.new_team.areas = [
       { label: 'Photonics', value: true },
       { label: 'Semiconductor', value: true },
       { label: 'Electromagnetics', value: true },
@@ -65,7 +65,7 @@ export class TeamCreateComponent implements OnInit {
     this.jq_summernote = true;
     this.jq_datatable = false;
 
-    this.input_disable = true;
+    this.inpudisable = true;
     this.steps = 1;
     this.steps_prev = 1;
 
@@ -90,7 +90,7 @@ export class TeamCreateComponent implements OnInit {
           ['fullscreen', ['fullscreen']]
         ]
       });
-      $('.summernote').summernote('code', this.new_team.t_about);
+      $('.summernote').summernote('code', this.new_team.about);
       this.jq_summernote = false;
     }
     if (this.jq_datatable) {
@@ -100,27 +100,27 @@ export class TeamCreateComponent implements OnInit {
 
   }
 
-  step_show(step) {
+  steshow(step) {
     this.steps_prev = this.steps;
     this.steps = step;
     this.steps == 1 ? this.jq_summernote = true : this.save_summernote();
     this.steps == 2 ? this.jq_datatable = true : this.jq_datatable = false;
   }
 
-  step_prev() {
+  steprev() {
     this.steps_prev = this.steps;
     this.steps--;
-    this.step_show(this.steps);
+    this.steshow(this.steps);
   }
 
-  step_next() {
+  stenext() {
     this.steps_prev = this.steps;
     this.steps++;
-    this.step_show(this.steps);
+    this.steshow(this.steps);
   }
 
   save_summernote() {
-    this.steps != 1 && this.steps_prev == 1 ? this.new_team.t_about = $('.summernote').summernote('code') : null;
+    this.steps != 1 && this.steps_prev == 1 ? this.new_team.about = $('.summernote').summernote('code') : null;
     this.jq_summernote = false;
   }
 

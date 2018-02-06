@@ -26,24 +26,24 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this._userService.getUser()
       .subscribe(_user => {
-        _user.u_created = new Date();
-        _user.u_modified = new Date();
-        _user.u_modified_str = _user.u_modified.toISOString().substring(0, 10);
+        _user.created = new Date();
+        _user.modified = new Date();
+        _user.modified_str = _user.modified.toISOString().substring(0, 10);
 
-        _user.u_tag ? _user.u_tags = _user.u_tag.split(" ") : null;
+        _user.tag ? _user.tags = _user.tag.split(" ") : null;
 
-        // _user.u_team ? null : _user.u_team = {};
-        // _user.u_team.t_tag ? null : _user.u_team.t_tag = "WOCAO";
-        // _user.u_team.t_tags ? _user.u_team.t_tags = _user.u_team.t_tag.split(" ") : _user.u_team.t_tags = [];
+        // _user.team ? null : _user.team = {};
+        // _user.team.tag ? null : _user.team.tag = "WOCAO";
+        // _user.team.tags ? _user.team.tags = _user.team.tag.split(" ") : _user.team.tags = [];
 
         this._teamService.getTeam()
           .subscribe(_team => {
-            _user.u_team = _team;
-            _user.u_team.t_tags ? _user.u_team.t_tags = _user.u_team.t_tag.split(" ") : _user.u_team.t_tags = [];
+            _user.team = _team;
+            _user.team.tags = _user.team.tag.split(" ");
 
             this._projectService.getProject()
               .subscribe(_project => {
-                _user.u_project = _project;
+                _user.project = _project;
                 this.user = _user;
               })
           })

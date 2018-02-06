@@ -20,12 +20,12 @@ export class UserListComponent implements OnInit {
       .subscribe(_users => {
 
         for (let i = 0; i < _users.length; i++) {
-          _users[i].u_created = new Date();
-          _users[i].u_modified = new Date();
-          _users[i].u_modified_str = _users[i].u_modified.toISOString().substring(0, 10);
+          _users[i].created = new Date();
+          _users[i].modified = new Date();
+          _users[i].modified_str = _users[i].modified.toISOString().substring(0, 10);
 
-          _users[i].u_tag ? _users[i].u_tags = _users[i].u_tag.split(" ") : null;
-          //_users[i].u_team.t_tag ? _users[i].u_team.t_tags = _users[i].u_team.t_tag.split(" ") : null;
+          _users[i].tag ? _users[i].tags = _users[i].tag.split(" ") : null;
+          //_users[i].team.tag ? _users[i].team.tags = _users[i].team.tag.split(" ") : null;
         }
 
         this.users = _users;

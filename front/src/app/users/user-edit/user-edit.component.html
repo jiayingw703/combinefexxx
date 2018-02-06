@@ -45,8 +45,8 @@
                           <i class="fa fa-exclamation-triangle"></i> Please enter a your first name</span>
                         <span class="text-danger" *ngIf="(v_ufirst.touched || v_ufirst.dirty) && v_ufirst.errors?.minlength">
                           <i class="fa fa-exclamation-triangle"></i> Please enter minimum 2 character</span>
-                        <input #v_ufirst="ngModel" required minlength="2" [(ngModel)]='user.u_first' type="text" class="form-control" placeholder="Please enter a your first name"
-                          name="u_first">
+                        <input #v_ufirst="ngModel" required minlength="2" [(ngModel)]='user.first' type="text" class="form-control" placeholder="Please enter a your first name"
+                          name="first">
                       </div>
                       <div class="form-group col-lg-6" [ngClass]="{'has-error': (v_ulast.touched || v_ulast.dirty) && !v_ulast.valid}">
                           <label>Last Name *</label>
@@ -54,12 +54,12 @@
                             <i class="fa fa-exclamation-triangle"></i> Please enter a your last name</span>
                           <span class="text-danger" *ngIf="(v_ulast.touched || v_ulast.dirty) && v_ulast.errors?.minlength">
                             <i class="fa fa-exclamation-triangle"></i> Please enter minimum 2 character</span>
-                          <input #v_ulast="ngModel" required minlength="2" [(ngModel)]='user.u_last' type="text" class="form-control" placeholder="Please enter a your last name"
-                            name="u_last">
+                          <input #v_ulast="ngModel" required minlength="2" [(ngModel)]='user.last' type="text" class="form-control" placeholder="Please enter a your last name"
+                            name="last">
                         </div>
                       <div class="form-group col-lg-6">
                         <label>User ID</label>
-                        <input type="text" [(ngModel)]='user.uid' [readonly]="inpuu_disable" class="form-control" placeholder="UtorID" name="uid">
+                        <input type="text" [(ngModel)]='user.uid' [readonly]="inpudisable" class="form-control" placeholder="UtorID" name="uid">
                       </div>
 
                       <div class="form-group col-lg-6" [ngClass]="{'has-error': (v_uemail.touched || v_uemail.dirty) && !v_uemail.valid}">
@@ -68,18 +68,18 @@
                           <i class="fa fa-exclamation-triangle"></i> Please enter a contact email</span>
                         <span class="text-danger" *ngIf="(v_uemail.touched || v_uemail.dirty) && v_uemail.errors?.pattern">
                           <i class="fa fa-exclamation-triangle"></i> Please input a valid email address</span>
-                        <input #v_uemail="ngModel" required [pattern]="email_pattern" type="email" [(ngModel)]='user.u_email' class="form-control"
-                          placeholder="user@email.com" name="u_email">
+                        <input #v_uemail="ngModel" required [pattern]="email_pattern" type="email" [(ngModel)]='user.email' class="form-control"
+                          placeholder="user@email.com" name="email">
                       </div>
                       <div class="form-group col-lg-6">
                         <label>LinkedIn</label>
-                        <input type="url" id="" [(ngModel)]='user.u_linkedin' class="form-control" placeholder="LinkedIn Page"
-                          name="u_linkedin">
+                        <input type="url" id="" [(ngModel)]='user.linkedin' class="form-control" placeholder="LinkedIn Page"
+                          name="linkedin">
                       </div>
                       <div class="form-group col-lg-12">
                         <label class="control-label">Interested Areas</label>
                         <br>
-                        <div *ngFor="let area of user.u_areas" class="col-lg-3">
+                        <div *ngFor="let area of user.areas" class="col-lg-3">
                           <div class="checkbox checkbox-success checkbox-inline">
                             <input type="checkbox" [(ngModel)]='area.value' [name]="area.label">
                             <label> {{area.label}} </label>
@@ -88,8 +88,8 @@
                       </div>
                       <div class="form-group col-lg-12">
                         <label>Tags</label>
-                        <input [(ngModel)]='user.u_tag' type="text" class="form-control" placeholder="Separated by space (e.g. C C++ Python Java DE2)"
-                          name="u_tag">
+                        <input [(ngModel)]='user.tag' type="text" class="form-control" placeholder="Separated by space (e.g. C C++ Python Java DE2)"
+                          name="tag">
                       </div>
                       <div class="col-lg-12">
                         <div class="hpanel">

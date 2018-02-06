@@ -25,18 +25,18 @@ export class UserEditComponent implements OnInit {
   ngOnInit() {
     this._userService.getUser()
       .subscribe(_user => {
-        _user.u_created = new Date();
-        _user.u_modified = new Date();
-        _user.u_modified_str = _user.u_modified.toISOString().substring(0, 10);
+        _user.created = new Date();
+        _user.modified = new Date();
+        _user.modified_str = _user.modified.toISOString().substring(0, 10);
 
-        _user.u_tag ? _user.u_tags = _user.u_tag.split(" ") : null;
+        _user.tag ? _user.tags = _user.tag.split(" ") : null;
 
-        _user.u_team.t_tags = _user.u_team.t_tag.split(" ");
+        _user.team.tags = _user.team.tag.split(" ");
 
         this.user = _user;
       });
     
-      this.user.u_areas = [
+      this.user.areas = [
       { label: 'Photonics', value: true },
       { label: 'Semiconductor', value: true },
       { label: 'Electromagnetics', value: true },
@@ -73,7 +73,7 @@ export class UserEditComponent implements OnInit {
         ['fullscreen', ['fullscreen']]
       ]
     });
-    $('.summernote').summernote('code', this.user.u_about);
+    $('.summernote').summernote('code', this.user.about);
 
   }
 

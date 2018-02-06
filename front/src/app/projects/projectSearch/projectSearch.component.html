@@ -145,9 +145,11 @@
                 <div class="panel-body">
                   <div class="col-sm-12">
                     <h4 *ngIf="item.p_name" class="m-b-xs">{{item.p_name}}</h4>
-                    <div>{{item.p_abs}}</div>
                     <div style="word-wrap: break-word;">
-                      <small style="margin-right:1%" *ngFor='let tag of item.p_tags'>#{{tag}}</small>
+                      <small style="margin-right:1%" *ngIf='item.p_about'>Abstract: {{item.p_about}}</small>
+                    </div>
+                    <div style="word-wrap: break-word;">
+                      <small style="margin-right:1%" *ngIf='item.p_status'>Status: {{item.p_status}}</small>
                     </div>
                   </div>
                 </div>

@@ -19,7 +19,7 @@
                             <span>App views</span>
                         </li>
                         <li class="active">
-                            <span>Projects</span>
+                            <span>Projects List</span>
                         </li>
                     </ol>
                 </div>
@@ -27,7 +27,7 @@
                     Projects
                 </h2>
                 <button [routerLink]="['/projects/projectCreate']" type="button" class="btn btn-default btn-sm">Create a Project</button>
-              <button [routerLink]="['/projects/projectSearch']" type="button" class="btn btn-default btn-sm">Search Projects</button>
+                <button [routerLink]="['/projects/projectSearch']" type="button" class="btn btn-default btn-sm">Search Projects</button>
             </div>
         </div>
     </div>
@@ -42,9 +42,11 @@
                         <div class="row">
                             <div class="col-sm-8">
                                 <h4>
-                                    <a href="">{{project.p_name}}</a>
+                                    <a href="">{{project.pid}}:{{project.p_name}}</a>
                                 </h4>
-
+                              <p>
+                                <span style="margin-right:3%" *ngFor="let tag of project.p_tags"> #{{tag}} </span>
+                              </p>
                                 <p>
                                     {{project.p_about}}
                                 </p>
@@ -55,24 +57,20 @@
                                         <small>{{project.pid}}</small>
                                     </div>
                                     <div class="col-sm-3">
-                                        <div class="project-label">START DATE</div>
+                                        <div class="project-label">Posting Date</div>
                                         <small>{{project.p_created}}</small>
                                     </div>
                                     <div class="col-sm-3">
-                                        <div class="project-label">PROGRESS</div>
-                                        <div class="progress m-t-xs full progress-small">
-                                            <div style="width: 12%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="12" role="progressbar" class=" progress-bar progress-bar-info">
-                                            </div>
-                                        </div>
+                                        <div class="project-label">Status</div>
+                                        <small>{{project.p_status}}</small>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-4 project-info">
                                 <div class="project-action m-t-md">
                                     <div class="btn-group">
-                                        <button class="btn btn-xs btn-default"> View</button>
-                                        <button class="btn btn-xs btn-default"> Edit</button>
-                                        <button class="btn btn-xs btn-default"> Delete</button>
+                                        <button  [routerLink]="['/projects/projectDetail']" class="btn btn-xs btn-default"> View</button>
+                                        <button class="btn btn-xs btn-default"> Save</button>
                                     </div>
                                 </div>
                                 <div class="project-value">

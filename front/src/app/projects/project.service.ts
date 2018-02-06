@@ -13,7 +13,7 @@ import { IProject } from '../interface';
 export class ProjectService {
 
   private url = './assets/testdata/projects/';
-  
+
   constructor(private _http: HttpClient) { }
 
   private handleError(err: HttpErrorResponse) {
@@ -38,8 +38,8 @@ export class ProjectService {
 
 
   getProjects(): Observable<IProject[]> {
-    return this._http.get<IProject>(this.url + "projects.json")
-      .do(data => console.log("project.service.ts - getProject: ", JSON.stringify(data)))
+    return this._http.get<IProject[]>(this.url + "projects.json")
+      .do(data => console.log("project.service.ts - getProjects: ", JSON.stringify(data)))
       .catch(this.handleError);
   }
 

@@ -4,7 +4,7 @@ import { UserService } from '../../users/user.service';
 import { TeamService } from '../../teams/team.service';
 import { ProjectService } from '../../projects/project.service';
 
-import { ITeam } from '../../interface';
+import { IProject } from '../../interface';
 
 @Component({
   selector: 'app-projectDetail',
@@ -13,7 +13,8 @@ import { ITeam } from '../../interface';
 })
 export class ProjectDetailComponent implements OnInit {
 
-  private team: ITeam;
+  private project2: IProject;
+
 
   constructor(
     private _userService: UserService,
@@ -22,16 +23,16 @@ export class ProjectDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._teamService.getTeam()
-      .subscribe(_team => {
-        _team.t_created = new Date();
-        _team.t_modified = new Date();
-        _team.t_modified_str = _team.t_modified.toISOString().substring(0, 10);
+    this._projectService.getProject()
+      .subscribe(_project => {
+        _project.p_created = new Date();
+        _project.p_modified = new Date();
+        _project.p_modified_str = _project.p_modified.toISOString().substring(0, 10);
 
-        _team.t_tag ? _team.t_tags = _team.t_tag.split("") : null;
+        _project.p_tag ? _project.p_tags = _project.p_tag.split(" ") : null;
 
-        this.team = _team;
-      })
+        this.project2 = _project;
+      });
   }
 
 }

@@ -78,6 +78,7 @@ export class SearchService {
                   _projects[i].p_modified_str = _projects[i].p_modified.toISOString().substring(0, 10);
 
                   _projects[i].p_tag ? _projects[i].p_tags = _projects[i].p_tag.split(" ") : null;
+                  _projects[i].p_status = _projects[i].p_status;
 
                   _projects[i].s_name = _projects[i].p_name;
                   _projects[i].s_str = _projects[i].pid + " " + _projects[i].oid + " " + _projects[i].p_owner + " " + _projects[i].p_email + " " + _projects[i].p_tag;

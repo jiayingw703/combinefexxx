@@ -126,8 +126,8 @@ export class SearchComponent implements OnInit {
     });
 
     $("#projectsize").TouchSpin({
-      min: 1,
-      max: 10,
+      min: 2,
+      max: 4,
       step: 1,
       verticalbuttons: true
     });
@@ -146,7 +146,7 @@ export class SearchComponent implements OnInit {
     this.filtered = [];
     this.s_search = this.s_search.trim();
     var keys = this.s_search.split(" ");
-    console.log("keys:", typeof keys, keys.length, keys);    
+    console.log("keys:", typeof keys, keys.length, keys);
     var str: string;
     this.data.forEach(data => {
       for (let i = 0; i < keys.length; i++) {
@@ -172,7 +172,7 @@ export class SearchComponent implements OnInit {
     }
 
     this.filtered = [];
-    var check_all: boolean = (!this.s_user && !this.s_team && !this.s_team);
+    var check_all: boolean = (!this.s_user && !this.s_team && !this.s_project);
 
     if (this.s_user || check_all) {
       for (let i = 0; i < this.data_to_render.length; i++) {
@@ -229,7 +229,7 @@ export class SearchComponent implements OnInit {
       $('#teamsize').val() ? input_size = $('#teamsize').val() : input_size = null;
     }
     if (data_src == "project") {
-      $('#projectsize').val() ? input_size = $('#teamsize').val() : input_size = null;
+      $('#projectsize').val() ? input_size = $('#projectsize').val() : input_size = null;
     }
     input_size == size || input_size == null ? result = true : result = false;
     return result;
@@ -267,7 +267,7 @@ export class SearchComponent implements OnInit {
 
   untouched_filter(): boolean {
     var clean: boolean = true;
-    if (this.s_user || this.s_team || this.s_team) {
+    if (this.s_user || this.s_team || this.s_project) {
       clean = false;
       return clean;
     }
